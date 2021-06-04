@@ -55,7 +55,7 @@ function generateNavLinksForSections() {
 function addIdsToSections() {
     sections().forEach( (section, index) => {
         section.id = `section${index}`;
-        navLinks.href = `#${section.id}`;
+        navLinks()[index].href = `#${section.id}`;
     });
 }
 
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         const id = entry.target.getAttribute('id');
         if (entry.intersectionRatio > 0) {
-          document.querySelector(`nav li a[href="#${id}"]`).classList.add('active');
+          document.querySelector(`.nav-link[href="#${id}"]`).classList.add('active');
         } else {
           document.querySelector(`nav li a[href="#${id}"]`).classList.remove('active');
         }
@@ -74,7 +74,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Track all sections that have an `id` applied
     document.querySelectorAll('section[id]').forEach((section) => {
-      observer.observe(section);
+      if(section.id) {
+        observer.observe(section);
+      }
     });
 
   });
