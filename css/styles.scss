@@ -1,0 +1,72 @@
+html {
+
+}
+body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        cursor: pointer;
+        color: blueviolet;
+        font-weight: bold;
+    }
+    &:focus, &:active {
+        color: blueviolet;
+        font-weight: bold;
+    }
+
+}
+.active {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+
+body {
+
+    overflow-x: hidden;
+    display: flex;
+    justify-content: flex-end;
+
+            // Navigation
+
+    .header {
+        position: fixed;
+        top: 10rem;
+        left: 0;
+        width: 30vw;
+        padding: 2rem;
+        .nav {
+            .nav-list {
+                list-style-type: none;
+
+                .nav-item {
+                    margin: 1rem 0;
+                }
+            }
+
+        }
+    }
+
+
+    // container - content
+    .container {
+        width: 70vw;
+        .section {
+            margin: 3rem 1rem;
+
+            .section-heading {
+                margin: 1rem 0;
+            }
+        }
+
+    }
+}
+
+
+
