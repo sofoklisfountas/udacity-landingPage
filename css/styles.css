@@ -91,13 +91,6 @@ body .crud-footer .button:hover {
   font-weight: 600;
   -webkit-transition: background-color 300ms ease-in-out;
   transition: background-color 300ms ease-in-out;
-}
-
-body .crud-footer .buttonAdd:hover {
   background-color: #067541;
-}
-
-body .crud-footer .buttonRemove:hover {
-  background-color: #96092c;
 }
 /*# sourceMappingURL=styles.css.map */

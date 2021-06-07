@@ -85,16 +85,9 @@ body {
                 cursor: pointer;
                 font-weight: 600;
                 transition: background-color 300ms ease-in-out;
+                background-color: rgb(6, 117, 65);
                
             }
-        }
-        
-        .buttonAdd:hover {
-            background-color: rgb(6, 117, 65);
-        }
-
-        .buttonRemove:hover {
-            background-color: rgb(150, 9, 44);
         }
     }
 }
