@@ -33,8 +33,7 @@ body {
     display: grid;
     justify-content: flex-end;
 
-            // Navigation
-
+    // Navigation
     .header {
         position: fixed;
         top: 10rem;
@@ -54,7 +53,7 @@ body {
     }
 
 
-    // container - content
+    // container - contains sections
     .container {
         
         width: 70vw;
