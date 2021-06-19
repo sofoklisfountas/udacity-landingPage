@@ -1,4 +1,4 @@
-var sections = () => document.querySelectorAll('[data-section="section"]');
+const sections = () => document.querySelectorAll('[data-section="section"]');
 const navLinks = () => document.querySelectorAll('.nav-link');
 
 const contentContainers = document.querySelectorAll('[data-section="content"]');
@@ -18,7 +18,7 @@ function getIndex() {
 }
 
 /**
- * Adds a section at the end of the section container. 
+ * Adds a section at the end of the section container.
  * Creates a heading for that section.
  * Creates a navigation link for that section
  * Links the navigation link to the section.
@@ -48,12 +48,12 @@ function addIdsToSection() {
 function generateNavLink() {
   const index = getIndex();
   const navList = document.querySelector('.nav-list');
-  const navLinkHTML = `<li class="nav-item"><a href="#section${index}" class="nav-link">Section link ${index}</a></li>`;
+  const navLinkHTML = `<li class="nav-item"><a class="nav-link" data-scroll="#section${index}">Section link ${index}</a></li>`;
   navList.innerHTML += navLinkHTML;
 }
 
 /**
- * Updates observer. 
+ * Updates observer.
  * Track all sections that have an `id` applied
  */
 function updateObserver() {
@@ -83,13 +83,13 @@ const options = {
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     const id = entry.target.getAttribute('id');
-    navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+    navLink = document.querySelector(`.nav-link[data-scroll="#${id}"]`);
     if (navLink) {
       if (entry.intersectionRatio >= 0.5) {
         console.log(entry.target);
-        document.querySelector(`.nav-link[href="#${id}"]`).classList.add('active');
+        document.querySelector(`.nav-link[data-scroll="#${id}"]`).classList.add('active');
       } else {
-        document.querySelector(`nav li a[href="#${id}"]`).classList.remove('active');
+        document.querySelector(`nav li a[data-scroll="#${id}"]`).classList.remove('active');
       }
     }
     console.log(navLink);
@@ -99,3 +99,10 @@ const observer = new IntersectionObserver(entries => {
 
 // Update the observer
 updateObserver();
+
+document.addEventListener("click", e => {
+  if (e.target.matches('.nav-link')) {
+    const sectionToScroll = document.querySelector(e.target.dataset.scroll);
+    sectionToScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+});
