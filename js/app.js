@@ -41,7 +41,7 @@ function generateHeading() {
 function addIdsToSection() {
   const index = getIndex();
   sections()[index].id = `section${index}`;
-  navLinks()[index].href = `#${sections()[index].id}`;
+  navLinks()[index].dataset = `#${sections()[index].id}`;
 }
 
 // Adds a new navigation link to the view targeting the newly added section (last).
@@ -103,6 +103,6 @@ updateObserver();
 document.addEventListener("click", e => {
   if (e.target.matches('.nav-link')) {
     const sectionToScroll = document.querySelector(e.target.dataset.scroll);
-    sectionToScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+    sectionToScroll.scrollIntoView({ behavior: "smooth" });
   }
 });
